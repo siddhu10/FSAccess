@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="FSAccess.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FSAccess"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer VerticalScrollMode="Auto">
+        <RelativePanel>
+            <TextBox x:Name="startPath" Margin="50,25" Width="1000" Header="Enter Source Path" />
+            <Button x:Name="browseBox" Margin="0,50" Click="browseBox_Click"  RelativePanel.RightOf="startPath" Content="Browse" Width="100" Height="30" />
+            <Button x:Name="accessBox" Margin="50,50" Click="accessBox_Click" RelativePanel.RightOf="browseBox" Content="Access" Width="100" Height="30" />
+            <TextBlock x:Name="label" Margin="50,25" FontSize="25" FontFamily="Segoe Print" RelativePanel.Below="startPath" Text="Source Path ->" />
+            <TextBlock x:Name="txtBox" Margin="25,0" FontSize="25" FontFamily="Segoe Print" RelativePanel.RightOf="label" RelativePanel.Below="accessBox" />
+
+            <TextBox x:Name="folderName" Margin="50,10" Width="350" Header="Enter Folder Name to Create" RelativePanel.Below="label" />
+            <Button x:Name="folderBox" Margin="10" Click="folderBox_Click" RelativePanel.Below="label" RelativePanel.RightOf="folderName" Content="Create Folder" Width="150" Height="35" />
+
+            <TextBox x:Name="fileName" Margin="50" Width="350" Header="Enter File Name to Create with Extension" RelativePanel.Below="folderName" />
+            <Button x:Name="fileBox" Margin="10,50" Click="fileBox_Click" RelativePanel.Below="folderName" RelativePanel.RightOf="fileName" Content="Create File" Width="150" Height="35" />
+
+            <TextBlock x:Name="label2" Margin="50,25" FontSize="25" FontFamily="Segoe Print" RelativePanel.Below="fileName" Text="Path ->" />
+            <TextBlock x:Name="txtBox2" Margin="0,50" FontSize="25" FontFamily="Segoe Print" RelativePanel.RightOf="label2" RelativePanel.Below="fileBox" Width="1000" />
+            <Button x:Name="propBox" Margin="20,50" Click="propBox_Click"  RelativePanel.RightOf="txtBox2" RelativePanel.Below="fileBox" Content="Get Properties" Width="150" Height="35" />
+
+            <TextBlock x:Name="propArea" Margin="50,0" FontSize="25" FontFamily="Segoe Print" RelativePanel.Below="label2" />
+        </RelativePanel>
+    </ScrollViewer>
+</Page>
