@@ -213,7 +213,4 @@
   <data name="AppName" xml:space="preserve">
     <value>Broad File System Access</value>
   </data>
-  <data name="PkgName" xml:space="preserve">
-    <value>Broad FS Access</value>
-  </data>
 </root>

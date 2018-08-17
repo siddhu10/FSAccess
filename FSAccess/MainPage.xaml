@@ -24,7 +24,7 @@
             <Button x:Uid="fileBtnLabel" x:Name="fileBox" Margin="10,50" Click="fileBox_Click" RelativePanel.Below="folderName" RelativePanel.RightOf="fileName" Content="Create File" Width="150" Height="35" />
 
             <TextBlock x:Uid="createLabel" x:Name="label2" Margin="50,25" FontSize="25" RelativePanel.Below="fileName" Text="Created File / Folder Path ->" />
-            <TextBlock x:Name="txtBox2" Margin="0,55" RelativePanel.RightOf="label2" RelativePanel.Below="fileBox" Width="800" />
+            <TextBlock x:Name="txtBox2" Margin="0,55" RelativePanel.RightOf="label2" RelativePanel.Below="fileBox" Width="Auto" />
             <Button x:Uid="propLabel" x:Name="propBox" Margin="20,50" Click="propBox_Click"  RelativePanel.RightOf="txtBox2" RelativePanel.Below="fileBox" Content="Fetch Properties" Width="150" Height="35" />
 
             <RichEditBox x:Uid="filePropLabel" x:Name="filePropArea" Margin="50,0" RelativePanel.Below="label2" RelativePanel.AlignLeftWithPanel="True" Height="400" Width="500" Header="File Properties" IsReadOnly="True" />

@@ -213,7 +213,4 @@
   <data name="AppName" xml:space="preserve">
     <value>広範なファイルシステムアクセス</value>
   </data>
-  <data name="PkgName" xml:space="preserve">
-    <value>ブロードバンドFSアクセス</value>
-  </data>
 </root>

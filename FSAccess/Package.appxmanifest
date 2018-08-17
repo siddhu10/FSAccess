@@ -3,7 +3,7 @@
   <Identity Name="7193c05a-ff45-44ff-9e78-34e952f66bc9" Publisher="CN=ssiddhardha" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="7193c05a-ff45-44ff-9e78-34e952f66bc9" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>ms-resource:PkgName</DisplayName>
+    <DisplayName>Broad FS Access</DisplayName>
     <PublisherDisplayName>ssiddhardha</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
