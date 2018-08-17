@@ -14,3 +14,4 @@ Debug
 Release
 AppPackages
 BundleArtifacts
+*.backup.*

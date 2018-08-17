@@ -10,23 +10,29 @@
 
     <ScrollViewer VerticalScrollMode="Auto">
         <RelativePanel>
-            <TextBox x:Name="startPath" Margin="50,25" Width="1000" Header="Enter Source Path" />
-            <Button x:Name="browseBox" Margin="0,50" Click="browseBox_Click"  RelativePanel.RightOf="startPath" Content="Browse" Width="100" Height="30" />
-            <Button x:Name="accessBox" Margin="50,50" Click="accessBox_Click" RelativePanel.RightOf="browseBox" Content="Access" Width="100" Height="30" />
-            <TextBlock x:Name="label" Margin="50,25" FontSize="25" FontFamily="Segoe Print" RelativePanel.Below="startPath" Text="Source Path ->" />
-            <TextBlock x:Name="txtBox" Margin="25,0" FontSize="25" FontFamily="Segoe Print" RelativePanel.RightOf="label" RelativePanel.Below="accessBox" />
+            <TextBlock x:Uid="titleLabel" x:Name="titleText" FontSize="35" Text="Broad File System Access" Margin="25,0" />
+            <TextBox x:Uid="sourceLabel" x:Name="startPath" Margin="50,25" Width="1000" Header="Browse or Enter Source Path" RelativePanel.Below="titleText" />
+            <Button x:Uid="browseLabel" x:Name="browseBox" Margin="0,100" Click="browseBox_Click"  RelativePanel.RightOf="startPath" Content="Browse" Width="100" Height="30" />
+            <Button x:Uid="accessLabel" x:Name="accessBox" Margin="50,100" Click="accessBox_Click" RelativePanel.RightOf="browseBox" Content="Access" Width="100" Height="30" />
+            <TextBlock x:Uid="sourcePathLabel" x:Name="label" Margin="50,25" FontSize="25" RelativePanel.Below="startPath" Text="Source Path ->" />
+            <TextBlock x:Name="txtBox" Margin="0,30" RelativePanel.RightOf="label" RelativePanel.Below="startPath" />
 
-            <TextBox x:Name="folderName" Margin="50,10" Width="350" Header="Enter Folder Name to Create" RelativePanel.Below="label" />
-            <Button x:Name="folderBox" Margin="10" Click="folderBox_Click" RelativePanel.Below="label" RelativePanel.RightOf="folderName" Content="Create Folder" Width="150" Height="35" />
+            <TextBox x:Uid="folderLabel" x:Name="folderName" Margin="50,10" Width="350" Header="Enter Folder Name to Create" RelativePanel.Below="label" />
+            <Button x:Uid="fldrBtnLabel" x:Name="folderBox" Margin="10" Click="folderBox_Click" RelativePanel.Below="label" RelativePanel.RightOf="folderName" Content="Create Folder" Width="150" Height="35" />
 
-            <TextBox x:Name="fileName" Margin="50" Width="350" Header="Enter File Name to Create with Extension" RelativePanel.Below="folderName" />
-            <Button x:Name="fileBox" Margin="10,50" Click="fileBox_Click" RelativePanel.Below="folderName" RelativePanel.RightOf="fileName" Content="Create File" Width="150" Height="35" />
+            <TextBox x:Uid="fileLabel" x:Name="fileName" Margin="50" Width="350" Header="Enter File Name to Create with Extension" RelativePanel.Below="folderName" />
+            <Button x:Uid="fileBtnLabel" x:Name="fileBox" Margin="10,50" Click="fileBox_Click" RelativePanel.Below="folderName" RelativePanel.RightOf="fileName" Content="Create File" Width="150" Height="35" />
 
-            <TextBlock x:Name="label2" Margin="50,25" FontSize="25" FontFamily="Segoe Print" RelativePanel.Below="fileName" Text="Path ->" />
-            <TextBlock x:Name="txtBox2" Margin="0,50" FontSize="25" FontFamily="Segoe Print" RelativePanel.RightOf="label2" RelativePanel.Below="fileBox" Width="1000" />
-            <Button x:Name="propBox" Margin="20,50" Click="propBox_Click"  RelativePanel.RightOf="txtBox2" RelativePanel.Below="fileBox" Content="Get Properties" Width="150" Height="35" />
+            <TextBlock x:Uid="createLabel" x:Name="label2" Margin="50,25" FontSize="25" RelativePanel.Below="fileName" Text="Created File / Folder Path ->" />
+            <TextBlock x:Name="txtBox2" Margin="0,55" RelativePanel.RightOf="label2" RelativePanel.Below="fileBox" Width="800" />
+            <Button x:Uid="propLabel" x:Name="propBox" Margin="20,50" Click="propBox_Click"  RelativePanel.RightOf="txtBox2" RelativePanel.Below="fileBox" Content="Fetch Properties" Width="150" Height="35" />
 
-            <TextBlock x:Name="propArea" Margin="50,0" FontSize="25" FontFamily="Segoe Print" RelativePanel.Below="label2" />
+            <RichEditBox x:Uid="filePropLabel" x:Name="filePropArea" Margin="50,0" RelativePanel.Below="label2" RelativePanel.AlignLeftWithPanel="True" Height="400" Width="500" Header="File Properties" IsReadOnly="True" />
+            <RichEditBox x:Uid="folderPropLabel" x:Name="foldrPropArea" RelativePanel.Below="label2" RelativePanel.RightOf="filePropArea" Height="400" Width="500" Header="Folder Properties" IsReadOnly="True" />
+
+            <AppBarButton x:Uid="refLabel" x:Name="refBtn" Margin="50,10,0,10" Icon="Refresh" Label="Refresh" RelativePanel.RightOf="accessBox" RelativePanel.AlignRightWithPanel="True" Click="refBtn_Click" />
+            <ProgressBar x:Name="progBar" Margin="50,0,0,10" RelativePanel.RightOf="accessBox" RelativePanel.Below="refBtn" IsIndeterminate="True" Width="400" Visibility="Collapsed" />
+            <RichEditBox x:Uid="listLabel" x:Name="fileListArea" Margin="50,0,0,20" Height="900" Width="400" Header="File List" RelativePanel.RightOf="accessBox" RelativePanel.Below="progBar" IsReadOnly="True" />
         </RelativePanel>
     </ScrollViewer>
 </Page>
