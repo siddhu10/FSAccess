@@ -33,8 +33,7 @@ namespace FSAccess
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            ApplicationView.PreferredLaunchViewSize = new Size(1920, 1080);
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
