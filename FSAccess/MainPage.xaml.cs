@@ -32,27 +32,37 @@ namespace FSAccess
 
         private async void accessBox_Click(object sender, RoutedEventArgs e)
         {
-            progBar.Visibility = Visibility.Visible;
-            fileListArea.IsReadOnly = false;
-
-            if (!(string.IsNullOrEmpty(startPath.Text)))
+            try
             {
-                strStartPath = startPath.Text;
-                strtFolder = await StorageFolder.GetFolderFromPathAsync(strStartPath);
-                txtBox.Text = strtFolder.Path;
+                progBar.Visibility = Visibility.Visible;
+                fileListArea.IsReadOnly = false;
 
-                string strList = await GetFileList();
-                fileListArea.Document.SetText(TextSetOptions.None, strList);
+                if (!(string.IsNullOrEmpty(startPath.Text)))
+                {
+                    strStartPath = startPath.Text;
+                    strtFolder = await StorageFolder.GetFolderFromPathAsync(strStartPath);
+                    txtBox.Text = strtFolder.Path;
+
+                    fileListArea.Document.SetText(TextSetOptions.None, string.Empty);
+                    string strList = await GetFileList();
+                    fileListArea.Document.SetText(TextSetOptions.None, strList);
+                }
+                else
+                {
+                    ContentDialog dialog = Helper.GetDialog();
+                    dialog.Content = Helper.GetResourceString("ID_SRCPATH_MSG");
+                    await dialog.ShowAsync();
+                }
+
+                fileListArea.IsReadOnly = true;
+                progBar.Visibility = Visibility.Collapsed;
             }
-            else
+            catch (Exception ex)
             {
-                ContentDialog dialog = Helper.GetDialog();
-                dialog.Content = Helper.GetResourceString("ID_SRCPATH_MSG");
-                await dialog.ShowAsync();
+                ContentDialog contentDialog = Helper.GetDialog();
+                contentDialog.Content = ex.Message;
+                await contentDialog.ShowAsync();
             }
-            
-            fileListArea.IsReadOnly = true;
-            progBar.Visibility = Visibility.Collapsed;
         }
 
         private async void folderBox_Click(object sender, RoutedEventArgs e)
@@ -171,12 +181,19 @@ namespace FSAccess
                 folderPicker.FileTypeFilter.Add(".txt");
 
                 StorageFolder storageFolder = await folderPicker.PickSingleFolderAsync();
-                strtFolder = await StorageFolder.GetFolderFromPathAsync(storageFolder.Path);
-                startPath.Text = strtFolder.Path;
+                if (storageFolder != null)
+                {
+                    strtFolder = await StorageFolder.GetFolderFromPathAsync(storageFolder.Path);
+                    if (strtFolder != null)
+                        startPath.Text = strtFolder.Path;
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Exception Handled: " + ex.Message);
+                ContentDialog contentDialog = Helper.GetDialog();
+                contentDialog.Content = ex.Message;
+                await contentDialog.ShowAsync();
             }
         }
 

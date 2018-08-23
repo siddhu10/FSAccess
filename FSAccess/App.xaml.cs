@@ -33,7 +33,7 @@ namespace FSAccess
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.Auto;
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
