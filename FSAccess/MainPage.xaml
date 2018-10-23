@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <ScrollViewer VerticalScrollMode="Auto">
+    <ScrollViewer VerticalScrollMode="Auto" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto">
         <RelativePanel>
             <TextBlock x:Uid="titleLabel" x:Name="titleText" FontSize="35" Text="Broad File System Access" Margin="25,0" />
             <TextBox x:Uid="sourceLabel" x:Name="startPath" Margin="50,25" Width="1000" Header="Browse or Enter Source Path" RelativePanel.Below="titleText" />
@@ -27,12 +27,12 @@
             <TextBlock x:Name="txtBox2" Margin="0,55" RelativePanel.RightOf="label2" RelativePanel.Below="fileBox" Width="Auto" />
             <Button x:Uid="propLabel" x:Name="propBox" Margin="20,50" Click="propBox_Click"  RelativePanel.RightOf="txtBox2" RelativePanel.Below="fileBox" Content="Fetch Properties" Width="150" Height="35" />
 
-            <RichEditBox x:Uid="filePropLabel" x:Name="filePropArea" Margin="50,0" RelativePanel.Below="label2" RelativePanel.AlignLeftWithPanel="True" Height="400" Width="500" Header="File Properties" IsReadOnly="True" />
-            <RichEditBox x:Uid="folderPropLabel" x:Name="foldrPropArea" RelativePanel.Below="label2" RelativePanel.RightOf="filePropArea" Height="400" Width="500" Header="Folder Properties" IsReadOnly="True" />
+            <RichEditBox x:Uid="filePropLabel" x:Name="filePropArea" Margin="50,0" RelativePanel.Below="label2" RelativePanel.AlignLeftWithPanel="True" Height="400" Width="450" Header="File Properties" IsReadOnly="True" />
+            <RichEditBox x:Uid="folderPropLabel" x:Name="foldrPropArea" RelativePanel.Below="label2" RelativePanel.RightOf="filePropArea" Height="400" Width="450" Header="Folder Properties" IsReadOnly="True" />
 
-            <AppBarButton x:Uid="refLabel" x:Name="refBtn" Margin="50,10,0,10" Icon="Refresh" Label="Refresh" RelativePanel.RightOf="accessBox" RelativePanel.AlignRightWithPanel="True" Click="refBtn_Click" />
-            <ProgressBar x:Name="progBar" Margin="50,0,0,10" RelativePanel.RightOf="accessBox" RelativePanel.Below="refBtn" IsIndeterminate="True" Width="400" Visibility="Collapsed" />
-            <RichEditBox x:Uid="listLabel" x:Name="fileListArea" Margin="50,0,0,20" Height="900" Width="400" Header="File List" RelativePanel.RightOf="accessBox" RelativePanel.Below="progBar" IsReadOnly="True" />
+            <AppBarButton x:Uid="refLabel" x:Name="refBtn" Margin="35,10,0,10" Icon="Refresh" Label="Refresh" RelativePanel.RightOf="accessBox" RelativePanel.AlignRightWithPanel="True" Click="refBtn_Click" />
+            <ProgressBar x:Name="progBar" RelativePanel.AlignLeftWith="browseBox"  RelativePanel.Below="browseBox" IsIndeterminate="True" Width="370" Visibility="Collapsed" />
+            <RichEditBox x:Uid="listLabel" x:Name="fileListArea" Margin="80,20,0,20" Height="710" Width="400" Header="File List" RelativePanel.RightOf="foldrPropArea" RelativePanel.Below="accessBox" IsReadOnly="True" />
         </RelativePanel>
     </ScrollViewer>
 </Page>
